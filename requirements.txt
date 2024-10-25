@@ -1,0 +1,12 @@
+setuptools
+wheel
+pandas
+numpy
+scikit-learn
+xgboost
+scipy
+streamlit
+streamlit-authenticator
+pyyaml
+
+
