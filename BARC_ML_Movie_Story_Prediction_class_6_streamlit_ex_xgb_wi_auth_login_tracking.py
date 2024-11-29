@@ -7,6 +7,7 @@ import pickle
 import datetime
 import gspread
 from google.oauth2.service_account import Credentials
+import pytz
 
 # Load the YAML configuration file
 with open("allowed_users.yaml") as file:
@@ -41,7 +42,9 @@ def init_google_sheet():
 
 def log_user_login(username):
     sheet = init_google_sheet()  # Initialize the sheet
-    login_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    # Set the timezone to IST
+    ist = pytz.timezone('Asia/Kolkata')
+    login_time = datetime.datetime.now(ist).strftime("%Y-%m-%d %H:%M:%S")
     new_row = [username, login_time]  # Add any additional columns as needed
     sheet.append_row(new_row)  # Append the new row at the bottom
 
