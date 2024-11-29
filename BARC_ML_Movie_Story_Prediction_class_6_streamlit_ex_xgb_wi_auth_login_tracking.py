@@ -35,7 +35,7 @@ def init_google_sheet():
     client = gspread.authorize(creds)
     
     # Open the Google Sheet by name
-    sheet = client.open("Streamlit_login_track").movie_app  # Adjust the sheet name as needed
+    sheet = client.open("Streamlit_login_track").worksheet("movie_app")  # Adjust the sheet name as needed
 
     return sheet
 
